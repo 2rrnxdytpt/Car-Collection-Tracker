@@ -1,41 +1,84 @@
 <!DOCTYPE html>
-<link rel="manifest" href="manifest.json">
 <html lang="pt">
 <head>
+
 <meta charset="UTF-8">
-<title>Car Collection Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WheelDex</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header>
 <h1>WheelDex</h1>
-</header>
+<section class="stats">
 
-<section class="container">
+<h2>Estatísticas</h2>
 
-<div class="card">
-<img src="imagens/boneshaker.png">
-<h2>Bone Shaker</h2>
-<p>Ano: 2019</p>
-<p>Série: HW Flames</p>
-<p>Número: 2/10</p>
-<button>Favorito</button>
+<div class="statsBox">
+
+<div class="stat">
+<h3 id="totalCarros">0</h3>
+<p>Total de carros</p>
 </div>
 
-<div class="card">
-<img src="imagens/twinmill.png">
-<h2>Twin Mill</h2>
-<p>Ano: 2020</p>
-<p>Série: HW Turbo</p>
-<p>Número: 3/10</p>
-<button>Favorito</button>
+<div class="stat">
+<h3 id="totalSeries">0</h3>
+<p>Séries diferentes</p>
+</div>
+
+<div class="stat">
+<h3 id="totalAnos">0</h3>
+<p>Anos diferentes</p>
+</div>
+
+</div>
+
+</section>
+<p>Minha coleção de carros</p>
+</header>
+
+<main>
+
+<section class="scanner">
+
+<h2>Adicionar carro</h2>
+
+<button class="scanBtn">📷 Tirar Foto</button>
+
+<input 
+type="file" 
+id="fotoInput" 
+accept="image/*" 
+capture="environment"
+style="display:none"
+>
+
+<div class="previewBox">
+<img id="preview" alt="Preview da foto">
+</div>
+
+<button class="add">Guardar carro</button>
+
+</section>
+
+<section>
+
+<h2>Minha coleção</h2>
+
+<div class="container">
+
+<!-- carros aparecem aqui -->
+
 </div>
 
 </section>
 
-<button class="add">+</button>
+</main>
 
 <script src="script.js"></script>
 
