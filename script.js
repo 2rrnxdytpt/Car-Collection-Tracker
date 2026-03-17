@@ -16,7 +16,7 @@ container.innerHTML = "";
 carros.forEach((carro,index)=>{
 
 container.innerHTML += `
-<div class="card">
+<div class="card ${carro.favorito ? "favorito" : ""}">
 
 <img src="${carro.foto}">
 
@@ -26,7 +26,17 @@ container.innerHTML += `
 <p>Série: ${carro.serie}</p>
 <p>Número: ${carro.numero}</p>
 
-<button onclick="remover(${index})">Remover</button>
+<div class="cardButtons">
+
+<button onclick="favoritar(${index})">
+${carro.favorito ? "⭐ Favorito" : "☆ Favoritar"}
+</button>
+
+<button onclick="remover(${index})">
+Remover
+</button>
+
+</div>
 
 </div>
 `;
@@ -80,7 +90,8 @@ nome,
 ano,
 serie,
 numero,
-foto: fotoAtual
+foto: fotoAtual,
+favorito: false
 });
 
 localStorage.setItem("carros", JSON.stringify(carros));
@@ -96,6 +107,17 @@ mostrarCarros();
 function remover(index){
 
 carros.splice(index,1);
+
+localStorage.setItem("carros", JSON.stringify(carros));
+
+mostrarCarros();
+
+}
+
+// marcar favorito
+function favoritar(index){
+
+carros[index].favorito = !carros[index].favorito;
 
 localStorage.setItem("carros", JSON.stringify(carros));
 
